@@ -1,5 +1,48 @@
-apply plugin: 'java'
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'com.jfrog.bintray' version '1.5'
+}
 
+group = 'ru.stereohorse'
+version = '1.0.1'
+
+bintray {
+    user = "${bintray_user}"
+    key = "${bintray_key}"
+
+    pkg {
+        repo = 'maven'
+        desc = 'FSM implementation'
+        licenses = ['MIT']
+        websiteUrl = 'https://github.com/0x06065a/stateful.git'
+        vcsUrl = 'https://github.com/0x06065a/stateful.git'
+        labels = ['fsm']
+        publications = ['bintrayPublication']
+
+        //noinspection GrReassignedInClosureLocalVar
+        name = "${project.name}"
+
+        //noinspection GroovyAssignabilityCheck
+        version {
+            name = "${project.version}"
+            released  = new Date()
+        }
+    }
+}
+
+publishing {
+    publications {
+        bintrayPublication(MavenPublication) {
+            from components.java
+            groupId "${project.group}"
+            artifactId "${project.name}"
+
+            //noinspection GroovyAssignabilityCheck
+            version "${project.version}"
+        }
+    }
+}
 
 repositories {
     jcenter()

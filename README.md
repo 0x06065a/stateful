@@ -1,6 +1,23 @@
+![travis](https://travis-ci.org/0x06065a/stateful.svg?branch=master)
+
 ### stateful
 
 FSM implementation
+
+#### Installation
+ 
+ 
+```gradle
+repositories {
+    maven {
+        url  'http://dl.bintray.com/0x06065a/maven' 
+    }
+}
+
+dependencies {
+    compile 'ru.stereohorse:stateful:1.0.1'
+}
+```
 
 #### Example
 
