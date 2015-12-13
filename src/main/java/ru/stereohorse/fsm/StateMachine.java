@@ -91,7 +91,6 @@ public class StateMachine<TTrigger> {
         }
 
 
-        @SuppressWarnings("unused")
         @SafeVarargs
         public final Builder<TTrigger> addFilters(Filter<TTrigger>... filters) {
             Optional.ofNullable(filters)
@@ -101,7 +100,6 @@ public class StateMachine<TTrigger> {
             return this;
         }
 
-        @SuppressWarnings("unused")
         @SafeVarargs
         public final Builder<TTrigger> addFilters(BiFunction<TTrigger,
                 State<TTrigger>,
