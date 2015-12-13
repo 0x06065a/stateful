@@ -8,8 +8,10 @@ group = 'ru.stereohorse'
 version = '1.0.1'
 
 bintray {
-    user = "${bintray_user}"
-    key = "${bintray_key}"
+    user = project.hasProperty('bintray_user') ? project.property('bintray_user') : System.getenv('bintray_user')
+    key = project.hasProperty('bintray_key') ? project.property('bintray_key') : System.getenv('bintray_key')
+
+    dryRun = true
 
     pkg {
         repo = 'maven'
